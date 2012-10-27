@@ -1,4 +1,4 @@
 loth
 ====
 
-Liturgy of the Hours
+Liturgy of the Hours Liturgical Calendar
