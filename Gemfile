@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-
+gem 'bcrypt-ruby'
 gem 'pg'
+gem 'gravatar_image_tag'
 
 group :development do
   gem 'rspec', '2.11.0'
   gem 'rspec-mocks', '2.11.3'
   gem 'rspec-rails', '2.11.4'
+  gem 'annotate'
 end
 
 

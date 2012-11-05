@@ -1,4 +1,6 @@
 Loth::Application.routes.draw do
+  get "users/new"
+
   resources :recipes
 
   resources :calendars
