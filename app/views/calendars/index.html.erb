@@ -1,0 +1,33 @@
+<h1>Listing calendars</h1>
+
+<table>
+  <tr>
+    <th>Label</th>
+    <th>Season</th>
+    <th>Prayer</th>
+    <th>Rank</th>
+    <th>Description</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendars.each do |calendar| %>
+  <tr>
+    <td><%= calendar.label %></td>
+    <td><%= calendar.season %></td>
+    <td><%= calendar.prayer %></td>
+    <td><%= calendar.rank %></td>
+    <td><%= calendar.description %></td>
+    <td><%= calendar.notes %></td>
+    <td><%= link_to 'Show', calendar %></td>
+    <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
+    <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar', new_calendar_path %>

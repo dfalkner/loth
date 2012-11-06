@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Label:</b>
+  <%= @calendar.label %>
+</p>
+
+<p>
+  <b>Season:</b>
+  <%= @calendar.season %>
+</p>
+
+<p>
+  <b>Prayer:</b>
+  <%= @calendar.prayer %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= @calendar.rank %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @calendar.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @calendar.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_calendar_path(@calendar) %> |
+<%= link_to 'Back', calendars_path %>
