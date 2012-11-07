@@ -19,6 +19,8 @@ group :test do
   gem 'rspec-mocks', '2.11.3'
   gem 'rspec-rails', '2.11.4'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'cucumber-rails', '1.3.0'
+  gem 'database_cleaner', '0.9.1'
 end
 
 # Gems used only for assets and not required
