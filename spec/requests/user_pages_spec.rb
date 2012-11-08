@@ -77,8 +77,6 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
-    let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
 
     before { visit user_path(user) }
 
@@ -119,7 +117,7 @@ describe "User pages" do
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do
@@ -132,7 +130,7 @@ describe "User pages" do
         let(:user) { User.find_by_email('user@example.com') }
 
         it { should have_selector('title', text: user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_selector('div.alert.alert-success', text: 'LOTH Builder') }
         it { should have_link('Sign out') }
       end
     end
