@@ -11,28 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107211652) do
-
-  create_table "calendars", :force => true do |t|
-    t.string   "label"
-    t.string   "season"
-    t.string   "prayer"
-    t.string   "rank"
-    t.string   "description"
-    t.string   "notes"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "recipes", :force => true do |t|
-    t.integer  "calendar_id"
-    t.integer  "seq"
-    t.string   "label"
-    t.string   "filename"
-    t.string   "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121109214228) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
