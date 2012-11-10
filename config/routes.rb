@@ -1,4 +1,18 @@
 Loth::Application.routes.draw do
+  resources :recipes
+
+  resources :liturgical_days
+
+  resources :ranks
+
+  resources :hours
+
+  resources :seasons
+
+  resources :ingredients
+
+  resources :ingredient_types
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
