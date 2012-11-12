@@ -1,4 +1,10 @@
 Loth::Application.routes.draw do
+  resources :liturgical_days
+
+  resources :prayer_types
+
+  resources :ingredients
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   

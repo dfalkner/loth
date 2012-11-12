@@ -12,7 +12,7 @@ def make_users
                        password_confirmation: "password"
                        )                              
   admin.toggle!(:admin)
-  99.times do |n|
+  10.times do |n|
     name  = Faker::Name.name
     email = "person-#{n+1}@divineoffice.org"
     password  = "password"
