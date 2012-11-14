@@ -1,8 +1,4 @@
 Loth::Application.routes.draw do
-  resources :liturgical_hours
-
-  resources :liturgical_days
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
