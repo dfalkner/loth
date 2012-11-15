@@ -6,6 +6,78 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
+DayOfWeek.delete_all
+
+[ {code: 'sun', title:  'Sunday'}, 
+  {code: 'mon', title:  'Monday'}, 
+  {code: 'tue', title:  'Tuesday'},
+  {code: 'wed', title:  'Wednesday'}, 
+  {code: 'thu', title:  'Thursday'}, 
+  {code: 'fri', title:  'Friday'}, 
+  {code: 'sat', title:  'Saturday'},
+  {code: 'any', title:  'Any'}
+].each {|i| DayOfWeek.create(i)}
+
+
+Rank.delete_all
+
+[ {code: 'sol', title:  'Solemnity'}, 
+  {code: 'fst', title:  'Feast'}, 
+  {code: 'mem', title:  'Memorial'},
+  {code: 'opt', title:  'Optional Memorial'}, 
+  {code: 'comm', title:  'Commemoration'}, 
+  {code: 'sun', title:  'Sunday'}, 
+  {code: 'week', title:  'Weekday'}, 
+  {code: 'spec', title:  'Special'}, 
+  {code: 'na', title:  'N/A'} 
+].each {|i| Rank.find_or_create_by_code(i)}
+
+PrayerType.delete_all
+
+[ {code: "ep1", title: 'Evening Prayer I'},
+  {code: "np1", title: 'Night Prayer I'},
+  {code: "ip", title: 'Invitatory'},
+  {code: "or", title: 'Office of Readings'},
+  {code: "mp", title: 'Morning Prayer'},
+  {code: "dp1", title: 'Midmorning Prayer'},
+  {code: "dp2", title: 'Midday Prayer'},
+  {code: "dp3", title: 'Midafternoon Prayer'},
+  {code: "ep2", title: 'Evening Prayer'},
+  {code: "np2", title: 'Night Prayer'}
+].each do |i|
+  PrayerType.find_or_create_by_code(i)
+end
+
+Season.delete_all
+
+[ {code: 'ord', title: "Ordinary Time"},
+  {code: 'adv', title: "Advent"},
+  {code: 'xmas', title: "Christmas"},
+  {code: 'lent', title: "Lent"},
+  {code: 'easter', title: "Easter"}, 
+  {code: 'any', title: "Any"},
+  {code: 'na', title: "Not Applicable"}
+].each do |i|
+  Season.find_or_create_by_code(i)
+end
+
+StorageBin.delete_all
+
+[ {name: 'ip', purpose:  'Invitatory Psalm file storage location'}, 
+  {name: 'or', purpose:  'Office of Reading file storage location'},
+  {name: 'mp', purpose:  'Morning Prayer file storage location'}, 
+  {name: 'dp', purpose:  'Day Prayer file storage location'}, 
+  {name: 'ep', purpose:  'Evening Prayer file storage location'}, 
+  {name: 'np', purpose:  'Night Prayer file storage location'}, 
+  {name: 'common', purpose:  'Common parts to all file storage location'}, 
+  {name: 'hymns', purpose:  'Hymn file storage location'}, 
+  {name: 'psalms', purpose:  'Psalm file storage location'}, 
+  {name: 'concluding_prayers', purpose:  'Concluding Prayer file storage location'}, 
+  {name: 'staging', purpose:  'Staging and temporary file storage location'}
+].each {|i| StorageBin.find_or_create_by_name(i)}
+
 admin = User.create!(name:     "Dane Falkner",
                      email:    "dfalkner@divineoffice.org",
                      password: "password",
@@ -13,57 +85,3 @@ admin = User.create!(name:     "Dane Falkner",
                      )                              
 admin.toggle!(:admin)
 admin.toggle!(:editor)
-
-DayOfWeek.delete_all
-
-[ {name: 'sun', title:  'Sunday'}, 
-  {name: 'mon', title:  'Monday'}, 
-  {name: 'tue', title:  'Tuesday'},
-  {name: 'wed', title:  'Wednesday'}, 
-  {name: 'thu', title:  'Thursday'}, 
-  {name: 'fri', title:  'Friday'}, 
-  {name: 'sat', title:  'Saturday'}
-].each {|i| DayOfWeek.create(i)}
-
-
-Rank.delete_all
-
-[ {name: 'solemnity', title:  'Solemnity'}, 
-  {name: 'feast', title:  'Feast'}, 
-  {name: 'memorial', title:  'Memorial'},
-  {name: 'opt-mem', title:  'Optional Memorial'}, 
-  {name: 'comm', title:  'Commemoration'}, 
-  {name: 'sunday', title:  'Sunday'}, 
-  {name: 'weekday', title:  'Weekday'}, 
-  {name: 'special', title:  'Special'}, 
-  {name: 'na', title:  'N/A'} 
-].each {|i| Rank.create(i)}
-
-PrayerType.delete_all
-
-[ {name: "ep1", title: 'Evening Prayer I'},
-  {name: "np1", title: 'Night Prayer I'},
-  {name: "ip", title: 'Invitatory'},
-  {name: "or", title: 'Office of Readings'},
-  {name: "mp", title: 'Morning Prayer'},
-  {name: "dp1", title: 'Midmorning Prayer'},
-  {name: "dp2", title: 'Midday Prayer'},
-  {name: "dp3", title: 'Midafternoon Prayer'},
-  {name: "ep2", title: 'Evening Prayer'},
-  {name: "np2", title: 'Night Prayer'}
-].each do |i|
-  PrayerType.find_or_create_by_name(i)
-end
-
-Season.delete_all
-
-[ {name: 'ord', title: "Ordinary Time"},
-  {name: 'adv', title: "Advent"},
-  {name: 'xmas', title: "Christmas"},
-  {name: 'lent', title: "Lent"},
-  {name: 'easter', title: "Easter"}, 
-  {name: 'any', title: "Any"}
-].each do |i|
-  Season.find_or_create_by_name(i)
-end
-
