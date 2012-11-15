@@ -9,6 +9,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'jquery-rails', '2.1.3'
 gem 'faker', '1.1.2'
+gem 'sanitize'
 
 group :development do
   gem 'rspec', '2.11.0'
